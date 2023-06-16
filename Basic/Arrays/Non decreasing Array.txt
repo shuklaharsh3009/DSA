@@ -1,3 +1,8 @@
+Question ->
+https://www.codingninjas.com/codestudio/problems/non-decreasing-array_699920
+
+Answer ->
+
 #include <bits/stdc++.h> 
 bool isPossible(int *arr, int n)
 {
