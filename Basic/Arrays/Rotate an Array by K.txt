@@ -1,0 +1,28 @@
+Question ->
+https://www.codingninjas.com/codestudio/problems/rotate-array_1230543?utm_source=youtube&utm_medium=affiliate&utm_campaign=parikh_youtube
+
+Answer ->
+
+#include <bits/stdc++.h> 
+#include <iostream>
+using namespace std;
+
+void rotate( int n, vector<int> &arr, int k ) {
+    for( int i = 0; i < n; i++ ) {
+        cout << arr[ (i+k)%n ] << " ";
+    }
+}
+
+int main() {
+    int n, k;
+    cin >> n;
+    vector<int> arr(n,0);
+    for( int i = 0; i < n; i++ ) {
+        cin >> arr[i];
+    }
+    cin >> k;
+    
+    rotate(n, arr, k);
+
+    return 0;
+}

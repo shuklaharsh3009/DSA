@@ -1,0 +1,26 @@
+#include <bits/stdc++.h> 
+bool isPossible(int *arr, int n)
+{
+    bool changed = false;
+    int maxTillNow = INT_MIN;
+
+    for( int curr = 1, prev = 0; curr < n; curr++, prev++ ) {
+        if( arr[curr] < arr[prev] && !changed ) {
+            if( arr[curr] < maxTillNow ) {
+                arr[curr] = arr[prev];
+            } else {
+                arr[prev] = arr[curr];
+            }
+            if( arr[prev] < maxTillNow ) {
+                return false;
+            }
+            changed = true;
+        } else if( arr[curr] < arr[prev] && changed ) {
+            return false;
+        } 
+
+        maxTillNow = arr[prev];
+    }
+
+    return true;
+}
