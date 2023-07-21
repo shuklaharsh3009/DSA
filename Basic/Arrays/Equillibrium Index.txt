@@ -1,0 +1,25 @@
+Question ->
+https://www.codingninjas.com/studio/problems/equilibrium-index_893014?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+int findEquilibriumIndex(vector<int> &arr) {
+    int size = arr.size();
+    vector<int> sumToRight(size,0);
+    vector<int> sumToLeft(size,0);
+    
+    for(int i = 0; i < size; i++) {
+        if(i != 0) {
+            sumToLeft[i] = sumToLeft[i-1] + arr[i-1];
+            sumToRight[size-i-1] = sumToRight[size-i] + arr[size-i];
+        } 
+    }
+
+    for(int i = 0; i < size; i++) {
+        if(sumToLeft[i] == sumToRight[i])
+            return i;
+    }
+
+    return -1;
+}

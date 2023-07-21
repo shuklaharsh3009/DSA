@@ -1,0 +1,25 @@
+Question ->
+https://www.codingninjas.com/studio/problems/mnfrj_1075018?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+int minimumParentheses(string pattern) {
+    stack<char> s;
+    int count = 0;
+    int n = pattern.size();
+    for(int i = 0; i < n; i++) {
+        char curr = pattern[i];
+        char open = '(';
+        char close = ')';
+        if(s.empty() && curr == close) {
+            count++;
+        } else if(!s.empty() && curr == close) {
+            s.pop();
+        } else if(curr == open) {
+            s.push(curr);
+        }
+    }
+    count += s.size();
+    return count;
+}

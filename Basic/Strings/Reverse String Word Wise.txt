@@ -1,0 +1,43 @@
+Question ->
+https://www.codingninjas.com/studio/problems/reverse-string-word-wise_1262348?utm_source=youtube&utm_medium=affiliate&utm_campaign=parikh_youtube&leftPanelTab=0
+
+Answer ->
+
+#include <iostream>
+using namespace std;
+#include <bits/stdc++.h>
+
+string reverseStringWordWise(string input)
+{
+    string ans = "";
+    string word = "";
+    int n = input.length();
+    input = " " + input + " ";
+    for(int i = 1; i <= n; i++) {
+        char charBefore = input[i-1];
+        char charCurr = input[i];
+        char charAfter = input[i+1];
+        char space = ' ';
+        if(charBefore == space && charAfter == space && charCurr != space) {
+            word = charCurr;
+            ans = " " + word + ans;
+        } else if(charBefore == space && charCurr != space) {
+            word = input[i];
+        } else if(charAfter == space && charCurr != space) {
+            word += input[i];
+            ans = " " + word + ans;
+        } else if(charCurr != space) {
+            word += input[i];
+        }
+    }
+
+    return ans.substr(1);
+}
+
+int main()
+{
+    string s;
+    getline(cin, s);
+    string ans = reverseStringWordWise(s);
+    cout << ans << endl;
+}
