@@ -1,0 +1,36 @@
+Question ->
+https://www.codingninjas.com/studio/problems/set-matrix-zeros_3846774?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h>
+
+void setZeros(vector<vector<int>> &matrix)
+{
+	unordered_map<int,bool> zeroRow;
+	unordered_map<int,bool> zeroColumn;
+	int rows = matrix.size(), columns = matrix[0].size();
+	for(int i = 0; i < rows; i++) {
+		zeroRow[i] = false;
+	}
+	for(int i = 0; i < columns; i++) {
+		zeroColumn[i] = false;
+	}
+
+	for(int i = 0; i < rows; i++) {
+		for(int j = 0; j < columns; j++) {
+			if(matrix[i][j] == 0) {
+				zeroRow[i] = true;
+				zeroColumn[j] = true;
+			}
+		}
+	}
+
+	for(int i = 0; i < rows; i++) {
+		for(int j = 0; j < columns; j++) {
+			if(zeroRow[i] || zeroColumn[j]) {
+				matrix[i][j] = 0;
+			}
+		}
+	}
+}

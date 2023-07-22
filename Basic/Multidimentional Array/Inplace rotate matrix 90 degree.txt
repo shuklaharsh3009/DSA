@@ -1,0 +1,28 @@
+Question ->
+https://www.codingninjas.com/studio/problems/inplace-rotate-matrix-90-degree_839734?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+
+void inplaceRotate(vector<vector<int>> &arr)
+{
+    int n = arr.size()-1, i = 0, j = n, loop = (n+1)/2, N = n+1;
+    if(n+1 == 1)
+        return;
+     
+    for(int k = 0; k < loop; k++) {
+        int lp = j-i;
+        for(int l = 0; l < lp; l++) {
+            int next = arr[i][j];
+            swap(next, arr[N-j-1][i]);
+            swap(next, arr[N-k-1][N-j-1]);
+            swap(next, arr[j][N-k-1]);
+            swap(next, arr[i][j]);
+            j--;
+        }
+        i++;
+        j = n-1;
+        n--;
+    }
+}

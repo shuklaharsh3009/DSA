@@ -1,0 +1,40 @@
+Question ->
+https://www.codingninjas.com/studio/problems/print-spiral_547?leftPanelTab=0
+
+Answer ->
+
+void spiralPrint(int **input, int nRows, int nCols)
+{
+    int total = nRows*nCols, count = 0;
+    int sRow = 0, sCol = 0, eRow = nRows-1, eCol = nCols-1;
+    while(count < total) {
+        //Print sRow
+        for(int i = sRow, j = sCol; count < total && j <= eCol; j++) {
+            cout<< input[i][j] << " ";
+            count++;
+        }
+        sRow++;
+
+        //Print eCol
+        for(int i = sRow, j = eCol; count < total && i <= eRow; i++) {
+            cout<< input[i][j] << " ";
+            count++;
+        }
+        eCol--;
+        
+        //Print eRow
+        for(int i = eRow, j = eCol; count < total && j >= sCol; j--) {
+            cout<< input[i][j] << " ";
+            count++;
+        }
+        eRow--;
+        
+        //Print sCol
+        for(int i = eRow, j = sCol; count < total && i >= sRow; i--) {
+            cout<< input[i][j] << " ";
+            count++;
+        }
+        sCol++;
+        
+    }
+}
