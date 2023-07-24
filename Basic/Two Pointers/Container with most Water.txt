@@ -1,0 +1,22 @@
+Question ->
+https://www.codingninjas.com/studio/problems/container-with-most-water_873860?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h>
+int maxArea(vector<int>& height) {
+    int n = height.size(), i = 0, j = n-1;
+    int ans = INT_MIN;
+
+    while(i < j) {
+        int ar = min(height[i],height[j])*(j-i);
+        ans = max(ans, ar);
+        if(height[i] < height[j]) {
+            i++;
+        } else {
+            j--;
+        }
+    }
+
+    return ans;
+}

@@ -1,0 +1,25 @@
+Question ->
+https://www.codingninjas.com/studio/problems/first-non-repeating-character_920324?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+char firstNonRepeatingCharacter(string str) {
+
+  unordered_map<char,int> mp;
+  int n = str.length();
+  char ans = str[0];
+
+  for(char c: str) {
+    mp[c]++;
+  }
+
+  for(char c: str) {
+    if(mp[c] == 1) {
+      return c;
+    }
+  }
+
+  return ans;
+
+}

@@ -1,0 +1,16 @@
+Question ->
+https://www.codingninjas.com/studio/problems/make-unique-array_920329?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+int minElementsToRemove(vector<int> &arr)
+{
+	unordered_set<int> s;
+	int n = arr.size();
+	for(int i =0; i < n; i++) {
+		s.insert(arr[i]);
+	}
+
+	return n - s.size();
+}

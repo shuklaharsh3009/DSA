@@ -1,0 +1,21 @@
+Question ->
+Maximum Subarray Sum
+https://www.codingninjas.com/studio/problems/630526?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+typedef long long ll;
+
+long long maxSubarraySum(int arr[], int n)
+{
+    ll currSum = 0ll, maxSum = INT_MIN;    
+    for(int i = 0; i < n; i++) {
+        currSum += (ll)arr[i];
+        if(currSum < 0)
+            currSum = 0;
+        maxSum = max(currSum, maxSum);
+    }
+
+    return maxSum;
+}

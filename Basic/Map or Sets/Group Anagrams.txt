@@ -1,0 +1,39 @@
+Question ->
+https://www.codingninjas.com/studio/problems/group-anagrams_800285?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+vector<vector<string>> getGroupedAnagrams(vector<string> &inputStr, int n)
+{
+    vector<vector<string>> ans;
+    // vector<pair<string, string>> input2;
+    // for(string s: inputStr) {
+    //     string st = s;
+    //     sort(s.begin(), s.end());
+    //     input2.push_back({s, st});
+    // }
+    // sort(input2.begin(), input2.end());
+
+    // for(int i = 0; i < n; i += 0) {
+    //     string s = input2[i].first;
+    //     vector<string> temp;
+    //     temp.push_back(input2[i++].second);
+    //     while(i < n && input2[i].first == s) {
+    //         temp.push_back(input2[i++].second);
+    //     }
+    //     ans.push_back(temp);
+    // }
+    unordered_map<string, vector<string>> mp;
+    for(string s: inputStr) {
+        string str = s;
+        sort(s.begin(), s.end());
+        mp[s].push_back(str);
+    }
+
+    for(auto e: mp) {
+        ans.push_back(e.second);
+    }
+
+    return ans;
+}

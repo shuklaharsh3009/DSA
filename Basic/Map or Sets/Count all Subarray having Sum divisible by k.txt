@@ -1,0 +1,30 @@
+Question ->
+https://www.codingninjas.com/studio/problems/count-all-sub-arrays-having-sum-divisible-by-k_973254?leftPanelTab=0
+
+Answer ->
+
+#include <bits/stdc++.h> 
+typedef long long ll;
+
+int subArrayCount(vector<int> &arr, int k) {
+    ll count = 0ll,currSum = 0ll, n = arr.size();
+    map<int, int> mp;
+    mp[0]++;
+
+    for(int i = 0; i < n; i++) {
+        currSum += (ll)arr[i];
+        int r = currSum%k;
+        if(r < 0)
+            r += k;
+        
+        if(mp.find(r) == mp.end()) {
+            mp[r]++;
+        } else {
+            count += mp[r];
+            mp[r]++;
+        }
+    }
+
+    return count;
+}
+
