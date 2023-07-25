@@ -1,0 +1,22 @@
+Question ->
+https://www.codingninjas.com/studio/problems/interview-shuriken-41-move-zeroes-to-end_240143?leftPanelTab=0
+
+Answer ->
+
+void pushZerosAtEnd(vector<int> &arr) 
+{
+	int n = arr.size(), zero = -1, j = 0;
+	for(int i = 0; i < n; i++) {
+		while(arr[i] == 0) {
+			i++;
+		}
+
+		if(i < n) {
+			arr[j++] = arr[i];
+		}
+	}
+
+	while(j < n) {
+		arr[j++] = 0;
+	}
+}
